@@ -20,6 +20,8 @@
     --footer-link-color: rgba(255, 255, 255, 0.6);
     --gradient-overlay-color: rgba(47, 48, 58, 0.4);
     --dark-social-bg: rgba(255, 255, 255, 0.1);
+    --close-button-border: rgba(0, 0, 0, 0.1);
+    --backdrop-color: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -541,7 +543,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--backdrop-color);
 }
 
 .backdrop.is-hidden {
@@ -556,19 +558,21 @@ img {
     transform: translateX(-50%);
     min-width: 528px;
     min-height: 581px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    background: var(--primary-light-color);
+    box-shadow: var(--command-card-shadow);
     border-radius: 4px;
 }
 
 .close-button {
     position: absolute;
-    width: 30px;
-    height: 30px;
     right: 8px;
     top: 8px;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    background-color: var(--primary-light-color);
+    border: 1px solid var(--close-button-border);
     border-radius: 50%;
     cursor: pointer;
 }
