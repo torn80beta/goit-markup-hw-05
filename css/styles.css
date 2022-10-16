@@ -22,6 +22,7 @@
     --dark-social-bg: rgba(255, 255, 255, 0.1);
     --close-button-border: rgba(0, 0, 0, 0.1);
     --backdrop-color: rgba(0, 0, 0, 0.2);
+    --cubic-bezier-transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -153,15 +154,11 @@ img {
     color: var(--primary-text-color);
 }
 
-.site-nav .link.current {
-    color: var(--accent-color);
-}
-
 .site-nav {
     display: flex;
 }
 
-.site-nav .item +.item {
+.site-nav .item+.item {
     margin-left: 50px;
 }
 
@@ -170,7 +167,53 @@ img {
     fill: currentColor;
 }
 
-/* Main */
+/* Animation */
+
+.site-nav .link,
+.contacts .link {
+    position: relative;
+}
+
+.site-nav .link:not(.current):hover::after,
+.site-nav .link:not(.current):focus::after,
+.contacts .link:hover::after,
+.contacts .link:focus::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.site-nav .link:not(.current)::after,
+.contacts .link::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 400ms var(--cubic-bezier-transition), transform 400ms var(--cubic-bezier-transition);
+}
+
+.current::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.site-nav .link.current {
+    position: relative;
+    color: var(--accent-color);
+}
 
 /* HERO */
 
@@ -544,23 +587,33 @@ img {
     width: 100%;
     height: 100%;
     background-color: var(--backdrop-color);
+    opacity: 1;
+
+    transition: opacity 400ms var(--cubic-bezier-transition);
 }
 
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
+}
+
+.backdrop.is-hidden .modal {
+    transform: translateX(-50%) scale(0.1);
 }
 
 .modal {
     position: absolute;
     left: 50%;
     top: 221px;
-    transform: translateX(-50%);
     min-width: 528px;
     min-height: 581px;
     background: var(--primary-light-color);
     box-shadow: var(--command-card-shadow);
     border-radius: 4px;
+
+    transform: translateX(-50%) scale(1);
+    transition: transform 400ms var(--cubic-bezier-transition);
 }
 
 .close-button {
