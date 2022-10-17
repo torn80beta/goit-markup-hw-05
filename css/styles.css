@@ -657,7 +657,8 @@ img {
     background-color: var(--backdrop-color);
     opacity: 1;
 
-    transition: opacity 400ms var(--cubic-bezier-transition);
+    transition: opacity 400ms var(--cubic-bezier-transition),
+        visibility 400ms var(--cubic-bezier-transition);
 }
 
 .backdrop.is-hidden {
