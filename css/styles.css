@@ -134,6 +134,8 @@ img {
     line-height: calc(16/14);
     letter-spacing: 0.02em;
     color: var(--title-text-color);
+
+    transition: color 250ms var(--cubic-bezier-transition);
 }
 
 .site-nav .link:hover,
@@ -273,6 +275,8 @@ img {
     border-radius: 4px;
     background-color: var(--accent-color);
     color: var(--primary-light-color);
+
+    transition: background-color 250ms var(--cubic-bezier-transition);
 }
 
 .hero-button:hover,
@@ -417,6 +421,8 @@ img {
     background-color: var(--primary-light-color);
     border-radius: 50%;
     fill: var(--icons-fill-color);
+
+    transition: background-color 500ms var(--cubic-bezier-transition), fill 250ms var(--cubic-bezier-transition);    
 }
 
 .social-link:hover,
@@ -446,6 +452,8 @@ img {
     border: 1px solid var(--icons-fill-color);
     border-radius: 4px;
     fill: var(--icons-fill-color);
+
+    transition: border-color 250ms var(--cubic-bezier-transition), fill 250ms var(--cubic-bezier-transition);
 }
 
 .clients:hover,
@@ -502,6 +510,8 @@ img {
 .footer-link {
     display: inline-block;
     color: var(--footer-link-color);
+
+    transition: color 250ms var(--cubic-bezier-transition);
 }
 
 .footer-link:hover,
@@ -543,6 +553,10 @@ img {
     color: var(--title-text-color);
     border: 0;
     border-radius: 4px;
+
+    transition: color 250ms var(--cubic-bezier-transition), 
+        background-color 250ms var(--cubic-bezier-transition), 
+        box-shadow 250ms var(--cubic-bezier-transition);
 }
 
 .filter-container .item:first-child .filter-button {
@@ -682,4 +696,15 @@ img {
     border: 1px solid var(--close-button-border);
     border-radius: 50%;
     cursor: pointer;
+}
+
+.easter-egg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    border: 2px solid #d3d4da;
+    border-radius: 4px;
+    
+    transform: translate(-50%, -50%);
 }
