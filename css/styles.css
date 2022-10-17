@@ -19,6 +19,7 @@
     --command-card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     --footer-link-color: rgba(255, 255, 255, 0.6);
     --gradient-overlay-color: rgba(47, 48, 58, 0.4);
+    --portfolio-projects-overlay: rgba(33, 150, 243, 0.9);
     --dark-social-bg: rgba(255, 255, 255, 0.1);
     --close-button-border: rgba(0, 0, 0, 0.1);
     --backdrop-color: rgba(0, 0, 0, 0.2);
@@ -580,10 +581,12 @@ img {
     display: block;
     color: var(--primary-text-color);
     text-decoration: none;
+
+    transition: box-shadow 250ms var(--cubic-bezier-transition);
 }
 .project-link:hover,
 .project-link:focus {
-    box-shadow: var(--portfolio-box-shadow)
+    box-shadow: var(--portfolio-box-shadow);
 }
 
 .projects-element {
@@ -599,6 +602,34 @@ img {
     padding-right: 24px;
     border: 1px solid var(--cards-border-color);
     border-top: 0;
+}
+
+/* Portfolio animations */
+
+.thumb {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-element:hover  .project-overlay{
+    transform: translateY(0)
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    display: block;
+    padding: 63px 24px;
+
+    font-size: 18px;
+    line-height: calc(28/18);
+    color: var(--primary-light-color);
+    background-color: var(--portfolio-projects-overlay);
+
+    transform: translateY(100%);
+    transition: transform 250ms var(--cubic-bezier-transition);
 }
 
 /* Modal window */
