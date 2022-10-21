@@ -173,13 +173,13 @@ img {
 /* Navigation animation */
 
 /* Contacts hover/focus effect START */
-/*
+
 .contacts .link:hover::after,
 .contacts .link:focus::after {
      opacity: 1;
      transform: scaleX(1);
  } 
-*/
+
 /* Contacts hover/focus effect END */
 
 .site-nav .link,
